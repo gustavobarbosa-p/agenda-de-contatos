@@ -9,31 +9,52 @@ public class Main {
         try{
             while(true) {
 
-                System.out.print("Tecle 1 para adicionar e 2 para buscar: ");
+                System.out.println("+----------------------------+");
+                System.out.println("| Digite (1) para adicionar  |");
+                System.out.println("| Digite (2) para buscar     |");
+                System.out.println("| Digite (3) para listar     |");
+                System.out.println("| Digite (0) para sair       |");
+                System.out.println("+----------------------------+");
+                System.out.println(" ");
+
+                System.out.print("----> ");
                 int escolha = tec.nextInt();
             
-                FileWriter fw;
-                fw = new FileWriter("file.txt", true);
+                FileWriter fw = new FileWriter("doc.txt", true);
 
+            Thread.sleep(1000);
             if(escolha == 1) {
-
                 System.out.print("Escreva o nome: ");
                 String nome = tec.next();
+                nome = nome.toUpperCase();
                 fw.write(nome + "\n");
 
                 System.out.print("Escreva o número: ");
                 String numero = tec.next();
                 fw.write(numero + "\n");
 
-                System.out.println("Contato adicionado com sucesso!" + "\n");
+                System.out.println("Aguarde, estamos carregando estas informações!");
+                for(int i = 0; i < 5; i++) {
+                    System.out.print(".");
+                    Thread.sleep(700);
+                }
+                System.out.println(" Contato adicionado com sucesso!" + "\n");
+            Thread.sleep(1000);
+            }
+            else if(escolha == 2) {
 
-            }else if(escolha == 2) {
-                FileReader fr;
-                fr = new FileReader("file.txt");
+                FileReader fr = new FileReader("doc.txt");
                 Scanner tec2 = new Scanner(fr);
 
                 System.out.print("Digite o nome do contato que deseja procurar: ");
                 String nome2 = tec.next();
+                nome2 = nome2.toUpperCase();
+
+                System.out.println("Buscando");
+                for(int i = 0; i < 5; i++) {
+                    System.out.print(".");
+                    Thread.sleep(700);
+                }
 
                 while(tec2.hasNextLine()) {
                     String entrada = tec2.next();
@@ -45,7 +66,36 @@ public class Main {
                         break; 
                     }
                 }
-        }
+            Thread.sleep(1000);
+            }
+            else if(escolha == 3) {
+                FileReader fr = new FileReader("doc.txt");
+                Scanner tec2 = new Scanner(fr);
+
+                System.out.println("Nome | Telefone");
+                while(tec2.hasNextLine()) {
+                    String entrada = tec2.next();
+                    String entrada2 = tec2.next();
+
+                    if(entrada == null && entrada2 == null) {
+                        continue;
+                    }else {
+                        System.out.println(entrada + " - " + entrada2 + "\n");
+                        //break;
+                    }
+
+                }  
+            Thread.sleep(1000);
+            }
+            else if(escolha == 0) {
+                System.out.println("Aguarde, encerrando programa!");
+                for(int i = 0; i < 5; i++) {
+                    System.out.print(".");
+                    Thread.sleep(700);
+                }
+                System.out.println("Programa Encerrado!");
+                break;
+            }
         fw.close();
     }
 

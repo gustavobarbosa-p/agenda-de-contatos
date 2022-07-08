@@ -22,7 +22,7 @@ public class Main {
             
                 FileWriter fw = new FileWriter("doc.txt", true);
 
-            Thread.sleep(1000);
+            Thread.sleep(500);
             if(escolha == 1) {
                 System.out.print("Escreva o nome: ");
                 String nome = tec.next();
@@ -39,7 +39,7 @@ public class Main {
                     Thread.sleep(700);
                 }
                 System.out.println(" Contato adicionado com sucesso!" + "\n");
-            Thread.sleep(1000);
+            Thread.sleep(500);
             }
             else if(escolha == 2) {
 
@@ -66,26 +66,22 @@ public class Main {
                         break; 
                     }
                 }
-            Thread.sleep(1000);
+            Thread.sleep(500);
             }
             else if(escolha == 3) {
                 FileReader fr = new FileReader("doc.txt");
                 Scanner tec2 = new Scanner(fr);
 
                 System.out.println("Nome | Telefone");
+
                 while(tec2.hasNextLine()) {
                     String entrada = tec2.next();
                     String entrada2 = tec2.next();
 
-                    if(entrada == null && entrada2 == null) {
-                        continue;
-                    }else {
-                        System.out.println(entrada + " - " + entrada2 + "\n");
-                        //break;
-                    }
+                    System.out.println(entrada + " - " + entrada2 + "\n");
 
                 }  
-            Thread.sleep(1000);
+            Thread.sleep(500);
             }
             else if(escolha == 0) {
                 System.out.println("Aguarde, encerrando programa!");

@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.FileWriter;
 import java.io.FileReader;
 
-public class Main {
+public class contactBook {
     public static void main(String[] args) {
         Scanner tec = new Scanner(System.in);
 
